@@ -37,6 +37,10 @@ class FeedbackData(models.Model):
     comments = models.TextField(verbose_name='Any other feedback (your comments)',
                                 blank=True)
 
+    class Meta:
+        verbose_name = 'Feedback Data'
+        verbose_name_plural = 'Feedback Data'
+
     def __str__(self):
         return self.teacher_name.name
 
