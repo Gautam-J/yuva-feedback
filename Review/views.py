@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from Feedback.models import FeedbackData
 
 
@@ -12,7 +13,7 @@ class ListFeedbackView(LoginRequiredMixin, ListView):
     paginate_by = 10
 
 
-class SearchResultsView(ListView):
+class SearchResultsView(LoginRequiredMixin, ListView):
     model = FeedbackData
     template_name = 'Review/list_feedback.html'
     context_object_name = 'feedbacks'
@@ -26,14 +27,15 @@ class SearchResultsView(ListView):
         return object_list
 
 
-class FeedbackDetailView(DetailView):
+class FeedbackDetailView(LoginRequiredMixin, DetailView):
     model = FeedbackData
     template_name = 'Review/detail_feedback.html'
     context_object_name = 'feedback'
 
 
+@login_required
 def deleteAllFeedback(request):
     FeedbackData.objects.all().delete()
     context = {}
 
-    return render(request, 'Review/delete_feedback.html', context)
+    return render(request, 'Review/delete_success_feedback.html', context)
