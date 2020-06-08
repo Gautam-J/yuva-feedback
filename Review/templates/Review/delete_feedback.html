@@ -1,0 +1,11 @@
+{% extends 'Home/index.html' %}
+{% block content %}
+    <div>
+        <h2>Deleted all Feedbacks!!</h2>
+    </div>
+
+    <div>
+        <a href="{% url 'ListFeedbackView' %}">View Feedbacks</a>
+        <a href="{% url 'LogoutView' %}">Logout</a>
+    </div>
+{% endblock content %}
