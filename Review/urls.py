@@ -3,5 +3,5 @@ from .views import ListFeedbackView, SearchResultsView
 
 urlpatterns = [
     path('', ListFeedbackView.as_view(), name='ListFeedbackView'),
-    path('search', SearchResultsView.as_view(), name='SearchResultsView')
+    path('search/', SearchResultsView.as_view(), name='SearchResultsView'),
 ]
