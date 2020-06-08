@@ -6,7 +6,7 @@
         <a role="button" href="{% url 'ListFeedbackView' %}">View all feedbacks</a>
         <!-- TODO: Add a confirmation modal -->
         <!-- TODO: Add link to delete feedback and go to all feedbacks -->
-        <a role="button" href="#">Delete</a>
+        <a role="button" href="{% url 'DeleteFeedbackView' feedback.id %}">Delete</a>
     </div>
 
     <div>

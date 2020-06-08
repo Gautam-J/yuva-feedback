@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from Feedback.models import FeedbackData
@@ -31,6 +31,13 @@ class FeedbackDetailView(LoginRequiredMixin, DetailView):
     model = FeedbackData
     template_name = 'Review/detail_feedback.html'
     context_object_name = 'feedback'
+
+
+class DeleteFeedbackView(LoginRequiredMixin, DeleteView):
+    model = FeedbackData
+    context_object_name = 'feedback'
+    template_name = 'Review/confirm_delete.html'
+    success_url = '/review/'
 
 
 @login_required
