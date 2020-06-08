@@ -122,4 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# TODO: Add LOGIN_URL and LOGIN_REDIRECT_URL
+LOGIN_URL = 'LoginView'
+LOGIN_REDIRECT_URL = 'ListFeedbackView'

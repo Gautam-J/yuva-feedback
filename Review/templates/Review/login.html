@@ -3,4 +3,12 @@
     <div>
         <h1>Hello from Login View</h1>
     </div>
+
+    <div>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
 {% endblock content %}
