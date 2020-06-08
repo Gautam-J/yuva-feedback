@@ -3,4 +3,18 @@
     <div>
         <h1>Hello from List of Feedback view</h1>
     </div>
+
+    <div>
+        {% for feedback in feedbacks %}
+            <div>
+                <p>{{ feedback.date_submitted|date:'d F, Y H:i e' }}</p>
+                <p>{{ feedback.teacher_name }}</p>
+                <p>{{ feedback.punctuality }}</p>
+                <p>{{ feedback.portion }}</p>
+                <p>{{ feedback.doubt }}</p>
+                <p>{{ feedback.interactive }}</p>
+                <p>{{ feedback.comments }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
