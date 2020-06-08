@@ -1,0 +1,20 @@
+{% extends 'Home/index.html' %}
+{% block content %}
+
+    <div>
+        <h2>Hello from feedback form</h2>
+    </div>
+
+    <div>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <div>
+        <a role="button" href="{% url 'HomeView' %}">Cancel</a>
+    </div>
+
+{% endblock content %}

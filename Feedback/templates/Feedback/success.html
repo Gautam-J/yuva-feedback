@@ -1,0 +1,11 @@
+{% extends 'Home/index.html' %}
+{% block content %}
+    <div>
+        <p>Your feedback has been successfully submitted!</p>
+    </div>
+
+    <div>
+        <a role="button" href="{% url 'GetFeedbackView' %}">Give another feedback</a>
+        <a role="button" href="{% url 'HomeView' %}">Home</a>
+    </div>
+{% endblock content %}
