@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from Feedback.models import FeedbackData
 
@@ -24,6 +24,12 @@ class SearchResultsView(ListView):
         object_list = FeedbackData.objects.filter(teacher_name__name__icontains=query)
         object_list = object_list.order_by('-date_submitted')
         return object_list
+
+
+class FeedbackDetailView(DetailView):
+    model = FeedbackData
+    template_name = 'Review/detail_feedback.html'
+    context_object_name = 'feedback'
 
 
 def deleteAllFeedback(request):

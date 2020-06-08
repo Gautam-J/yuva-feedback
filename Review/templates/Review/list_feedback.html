@@ -20,11 +20,7 @@
             <div>
                 <p>{{ feedback.date_submitted|date:'d F, Y H:i e' }}</p>
                 <p>{{ feedback.teacher_name }}</p>
-                <p>{{ feedback.punctuality }}</p>
-                <p>{{ feedback.portion }}</p>
-                <p>{{ feedback.doubt }}</p>
-                <p>{{ feedback.interactive }}</p>
-                <p>{{ feedback.comments }}</p>
+                <a href="{% url 'FeedbackDetailView' feedback.id %}">Click here to view details</a>
             </div>
         {% endfor %}
     </div>

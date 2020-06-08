@@ -1,0 +1,22 @@
+{% extends 'Home/index.html' %}
+{% block content %}
+    <div>
+        <h1>Hello from List of Feedback view</h1>
+        <a role="button" href="{% url 'LogoutView' %}">Logout</a>
+        <a role="button" href="{% url 'ListFeedbackView' %}">View all feedbacks</a>
+        <!-- TODO: Add a confirmation modal -->
+        <!-- TODO: Add link to delete feedback and go to all feedbacks -->
+        <a role="button" href="#">Delete</a>
+    </div>
+
+    <div>
+        <p>{{ feedback.date_submitted|date:'d F, Y H:i e' }}</p>
+        <p>{{ feedback.teacher_name }}</p>
+        <p>{{ feedback.punctuality }}</p>
+        <p>{{ feedback.portion }}</p>
+        <p>{{ feedback.doubt }}</p>
+        <p>{{ feedback.interactive }}</p>
+        <p>{{ feedback.comments }}</p>
+    </div>
+
+{% endblock content %}
