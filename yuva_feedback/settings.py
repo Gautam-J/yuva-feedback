@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Home.apps.HomeConfig',
     'Feedback.apps.FeedbackConfig',
     'Review.apps.ReviewConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ STATICFILES_DIRS = [
 
 LOGIN_URL = 'LoginView'
 LOGIN_REDIRECT_URL = 'ListFeedbackView'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
