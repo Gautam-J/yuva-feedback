@@ -1,11 +1,8 @@
 {% extends 'Home/index.html' %}
 {% block content %}
-    <div>
-        <h2>Deleted all Feedbacks!!</h2>
-    </div>
-
-    <div>
-        <a href="{% url 'ListFeedbackView' %}">View Feedbacks</a>
-        <a href="{% url 'LogoutView' %}">Logout</a>
+    <div class="container">
+        <h2 class="py-2">Deleted all Feedbacks!!</h2>
+        <a class="btn btn-outline-primary mr-3" role="button" href="{% url 'ListFeedbackView' %}">View Feedbacks</a>
+        <a class="btn btn-outline-secondary" role="button" href="{% url 'LogoutView' %}">Logout</a>
     </div>
 {% endblock content %}
