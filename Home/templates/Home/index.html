@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -9,15 +10,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Custom CCS -->
+    <link rel="stylesheet" href="{% static 'Home/styles.css' %}">
+
     <title>Yuva Feedback</title>
 </head>
 
 <body>
 
-    <h1>Hello, world!</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar bg-crimson">
+        <div class="container-fluid">
+            <!-- Logo/Text -->
+            <a class="navbar-brand" href="{% url 'HomeView' %}">Yuva Feedback</a>
+        </div>
+    </nav>
 
+    <!-- main content -->
     <div>
         {% block content %}{% endblock content %}
+    </div>
+
+    <!-- Website footer -->
+    <div class="footer bg-crimson fixed-bottom">
+        <footer style="padding: 0.5cm; text-align: center;">
+            <div class="container">
+                <p class="copyright">Yuva Feedback 2020</p>
+                <p>Made with love by Gautam J - 2020 batch</p>
+            </div>
+        </footer>
     </div>
 
     <!-- Optional JavaScript -->
@@ -32,6 +53,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
+    <!-- autocomplete for searching teacher names in feedback form -->
     <script>
         $(function() {
             $("#search-field").autocomplete({
