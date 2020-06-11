@@ -1,27 +1,31 @@
 {% extends 'Home/index.html' %}
 {% block content %}
-    <div>
-        <h1>Hello from List of Feedback view</h1>
-        <a role="button" href="{% url 'LogoutView' %}">Logout</a>
-        <a role="button" href="{% url 'ListFeedbackView' %}">View all feedbacks</a>
-        <!-- TODO: Add a confirmation modal -->
-        <a role="button" href="{% url 'deleteAllFeedback' %}">Delete all feedbacks</a>
-    </div>
-
-    <div>
-        <!-- Form to search Teachers' name and get feedbacks on them -->
-        <form action="{% url 'SearchResultsView' %}" method="get">
-            <input type="text" name="q" placeholder="Search for Teacher" autocomplete="on" autofocus="on" id="search-field">
-        </form>
-    </div>
-
-    <div>
-        {% for feedback in feedbacks %}
-            <div>
-                <p>{{ feedback.date_submitted|date:'d F, Y H:i e' }}</p>
-                <p>{{ feedback.teacher_name }}</p>
-                <a href="{% url 'FeedbackDetailView' feedback.id %}">Click here to view details</a>
+    <div class="container">
+        <h1 class="text-center py-3">Recent Feedbacks</h1>
+        <div class="row mt-3">
+            <div class="col-9">
+                {% for feedback in feedbacks %}
+                    <div class="card p-2 mb-3">
+                        <p class="my-2"><strong>Feedback on:</strong> {{ feedback.teacher_name }}</p>
+                        <p><strong>Dated:</strong> {{ feedback.date_submitted|date:'d F, Y H:i e' }}</p>
+                        <a href="{% url 'FeedbackDetailView' feedback.id %}">Click here to view details</a>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+
+            <!-- Right side bar -->
+            <div class="col-3">
+                <ul class="list-group list-group-flush">
+                    <!-- Form to search Teachers' name and get feedbacks on them -->
+                    <form class="list-group-item list-group-item-action" action="{% url 'SearchResultsView' %}" method="get">
+                        <input type="text" name="q" placeholder="Search for Teacher" autocomplete="on" autofocus="on" id="search-field">
+                    </form>
+                    <a class="list-group-item list-group-item-action" role="button" href="{% url 'LogoutView' %}">Logout</a>
+                    <a class="list-group-item list-group-item-action" role="button" href="{% url 'ListFeedbackView' %}">View all feedbacks</a>
+                    <!-- TODO: Add a confirmation modal -->
+                    <a class="list-group-item list-group-item-action" role="button" href="{% url 'deleteAllFeedback' %}">Delete all feedbacks</a>
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock content %}
