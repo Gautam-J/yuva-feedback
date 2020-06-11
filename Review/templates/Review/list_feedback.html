@@ -8,7 +8,7 @@
                     <div class="card p-2 mb-3">
                         <p class="my-2"><strong>Feedback on:</strong> {{ feedback.teacher_name }}</p>
                         <p><strong>Dated:</strong> {{ feedback.date_submitted|date:'d F, Y H:i e' }}</p>
-                        <a href="{% url 'FeedbackDetailView' feedback.id %}">Click here to view details</a>
+                        <a href="{% url 'FeedbackDetailView' feedback.id %}">View details</a>
                     </div>
                 {% endfor %}
             </div>
