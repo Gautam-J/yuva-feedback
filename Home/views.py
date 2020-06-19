@@ -15,14 +15,7 @@ def get_teachers(request):
     if request.is_ajax():
         q = request.GET.get('term', '')
         teachers = Teacher.objects.filter(name__icontains=q)
-
-        results = []
-        for teacher in teachers:
-            teacher_json = {}
-            teacher_json = teacher.name
-            results.append(teacher_json)
-
-        # results = [teacher.name for teacher in teacher]
+        results = [teacher.name for teacher in teachers]
         data = json.dumps(results)
     else:
         data = 'fail'
