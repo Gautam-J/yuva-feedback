@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Feedback.apps.FeedbackConfig',
     'Review.apps.ReviewConfig',
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
